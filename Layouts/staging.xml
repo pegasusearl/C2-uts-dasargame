@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>Layout 1</name>
+    <name>staging</name>
     <sid>8873350371196689</sid>
-    <event-sheet>Event sheet 1</event-sheet>
+    <event-sheet>staging</event-sheet>
     <size>
         <width>854</width>
         <height>480</height>
@@ -47,8 +47,8 @@
                         <x>223.418884277</x>
                         <y>150.032318115</y>
                         <z>0</z>
-                        <width>200</width>
-                        <height>30</height>
+                        <width>215.70199585</width>
+                        <height>120.908996582</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
