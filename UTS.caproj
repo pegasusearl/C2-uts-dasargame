@@ -11,9 +11,16 @@
     <saved-with-version>23900</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
-    <used-behaviors />
+    <used-behaviors>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -26,9 +33,10 @@
     <preview-effects>1</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
-        <prop name="Clear background">Yes</prop>
+        <prop name="Clear background">No</prop>
+        <prop name="Downscaling">Low quality</prop>
         <prop name="Enable WebGL">On</prop>
-        <prop name="Fullscreen in browser">Letterbox integer scale</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
         <prop name="Fullscreen scaling">Low quality</prop>
         <prop name="Loader style">Progress bar only</prop>
         <prop name="Orientations">Landscape</prop>
@@ -36,24 +44,108 @@
         <prop name="Physics engine">Box2D asm.js</prop>
         <prop name="Preview browser">NW.js</prop>
         <prop name="Sampling">Point</prop>
-        <prop name="Use high-DPI display">Yes</prop>
+        <prop name="Use high-DPI display">No</prop>
     </configuration-settings>
     <object-folder>
-        <object-type global="1" name="inventory" sid="576281368698900">
-            <plugin id="Arr" />
+        <object-folder name="staging">
+            <object-type global="1" name="inventory" sid="576281368698900">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type name="print" sid="367956716401515">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="staging_hero" sid="659422707200679">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="move" sid="570507724336889">
+                        <behavior id="custom" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="958202504517591" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\fast\sprite\staging.png">
+                            <collision-poly>
+                                <point x="0.236842" y="0.155172" />
+                                <point x="1" y="0" />
+                                <point x="0.605263" y="0.5" />
+                                <point x="0.763158" y="0.844828" />
+                                <point x="0.5" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0.236842" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="staging_map" sid="117630974044879">
+                <plugin id="TiledBg" />
+                <texture original-source="F:\fast\sprite\map.png" />
+            </object-type>
+            <object-type name="staging_hero2" sid="972986192649297">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="133884840302216">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="840635726888269" speed="5">
+                        <frame duration="1" hotspotX="0.447368" hotspotY="0.965517" original-source="F:\fast\sprite\staging.png">
+                            <collision-poly>
+                                <point x="0.236842" y="0.155172" />
+                                <point x="1" y="0" />
+                                <point x="0.605263" y="0.5" />
+                                <point x="0.763158" y="0.844828" />
+                                <point x="0.5" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0.236842" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="box" sid="884004809237070">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="CustomMovement" sid="940683023252850">
+                        <behavior id="custom" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="672665692552229" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.491525" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-type name="Keyboard" sid="286302523641135">
+            <plugin id="Keyboard" />
         </object-type>
-        <object-type name="print" sid="367956716401515">
-            <plugin id="Text" />
+        <object-type name="Function" sid="229484615927825">
+            <plugin id="Function" />
         </object-type>
     </object-folder>
-    <families />
+    <families>
+        <family name="staging_puppet" plugin-id="Sprite" sid="939241636624888">
+            <members>
+                <member>staging_hero2</member>
+            </members>
+        </family>
+    </families>
     <layout-folder>
         <layout>staging.xml</layout>
+        <layout>demo.xml</layout>
+        <layout>endless.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>staging.xml</event-sheet>
+        <event-sheet>demo.xml</event-sheet>
+        <event-sheet>endless.xml</event-sheet>
     </event-folder>
-    <global-instances />
+    <global-instances>
+        <global-instance type="Keyboard" uid="4" />
+        <global-instance type="Function" uid="7" />
+    </global-instances>
     <sounds-folder />
     <music-folder />
     <files-folder>
