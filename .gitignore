@@ -2,3 +2,4 @@
 *.capx.backup*
 *.uistate.xml
 */*.uistate.xml
+*.capx.autosave
